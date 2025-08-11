@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="light">
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthCureAI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</head>
+
+  <body>
+    <div class="animated-bg"></div>
+
+   
+    <header class="sticky-header">
+      <div class="header-bar">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="HealthCureAI Logo" class="logo" />
+
+
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="slogan">
+        <h2>Trusted Medical Knowledge at Your Fingertips</h2>
+      </div>
+    </header>
+
+    
+    <aside class="side-menu" id="sideMenu">
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#" id="uploadReportMenu">Upload Report</a></li>
+    <li><a href="{{ url_for('diagnosis_page') }}" id="diagnosisMenu">Get Diagnosis</a></li>
+    <li><a href="{{ url_for('medibuddy') }}" id="medibuddyMenu">Use MediBuddy</a></li>
+   <li class="has-submenu">
+  <button id="medToggle" class="submenu-toggle">
+    Medicines <span class="arrow" id="arrowIcon">▼</span>
+  </button>
+  <div class="submenu-wrapper" id="submenuWrapper">
+    <ul class="submenu">
+      <li><a href="#" id="allopathyMenu">Allopathy Info</a></li>
+      <li><a href="#" id="homeopathyMenu">Homeopathy Info</a></li>
+    </ul>
+  </div>
+</li>
+
+    
+    <li><a href="#talk-ai">Talk to AI</a></li>
+    <li><a href="#about-us">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</aside>
+
+
+    
+    <main class="scroll-area">
+      
+     <section id="hero" class="hero-section">
+  <h1 id="typedText">
+  <span id="mainLine"></span>
+  <span id="subLine"></span>
+</h1>
+</section>
+
+
+      <section id="talk-ai" class="talk-ai-section">
+         <div class="lottie-container">
+    <lottie-player
+  src="{{ url_for('static', filename='animations/welcome.json') }}"
+
+      background="transparent"
+      speed="1"
+      style="width: 280px; height: 280px; margin: 0 auto; display: block;"
+      loop
+      autoplay>
+    </lottie-player>
+  </div>
+  <h2>Talk to HealthCure AI</h2>
+  
+
+  <div class="talk-ui">
+    <div class="talk-interface">
+    <button id="voice-btn" class="mic-btn" aria-label="Talk">
+      Start Talking
+    </button>
+
+    <div class="chat-box">
+
+    <div class="chat-container">
+  <div id="chatHistory" class="chat-history"></div>
+  <div class="chat-input-wrapper">
+    <input type="text" id="chatInput" placeholder="Ask your medical question..." />
+    <button id="sendBtn">Send</button>
+  </div>
+  </div>
+
+    <div class="language-select">
+      <label for="language-select">Choose Language:</label>
+      <select id="language-select">
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="gu">Gujarati</option>
+        <option value="mr">Marathi</option>
+      </select>
+    </div>
+  </div>
+
+  <p id="transcript" class="transcript-output">Your speech will appear here...</p>
+ <div id="guide-options" class="guide-options" style="display: none;">
+  <button onclick="navigateTo('uploadReportMenu')">📤 Upload Report</button>
+  <button onclick="navigateTo('diagnosisMenu')">🩺 Get Diagnosis</button>
+  <button onclick="navigateTo('medibuddy')">💊 Use MediBuddy</button>
+  <button onclick="scrollToSection('about-us')">ℹ About Us</button>
+  <button onclick="scrollToSection('contact')">📞 Contact Us</button>
+</div>
+</section>
+
+
+      
+      <section id="about-us" class="about-us">
+  <div class="about-hero">
+    <img src="{{ url_for('static', filename='images/aboutus.png') }}" alt="Medical AI Illustration" class="hero-image" />
+    <div>
+      <h2>Empowering Your Health Journey with HealthCureAI</h2>
+      <p><strong>Welcome to HealthCureAI—where technology meets healthcare with a human touch!</strong></p>
+      <p>At HealthCureAI, everyone deserves clear, reliable, and accessible medical knowledge—made possible by innovative AI and design.</p>
+    </div>
+  </div>
+  <ul class="about-highlights">
+    <li><strong>Instant Answers, Personalized Guidance:</strong> Get AI-powered insights for your symptoms, any time.</li>
+    <li><strong>All-in-One Medical Hub:</strong> Check diseases, upload medical reports, and receive summaries in your language.</li>
+    <li><strong>Holistic Choices:</strong> Allopathic and homeopathic information tailored to your needs.</li>
+    <li><strong>Inclusive and Accessible:</strong> Supports English, Hindi, Gujarati, Marathi, and adapts to all users.</li>
+    <li><strong>Medi-buddy:</strong> Smart AI-powered assistant that provides detailed information on any medicine — including dosage, pricing, manufacturer, and more — instantly and reliably.</li>
+  </ul>
+  <div class="about-extra">
+    <h3>Why Trust HealthCureAI?</h3>
+    <ul>
+      <li>Your data is <strong>secure and confidential</strong>.</li>
+      <li>Regular updates and a <strong>user-centric design</strong>.</li>
+      <li><strong>Transparency and support</strong>—we’re here for you.</li>
+    </ul>
+    <p><strong>Discover HealthCureAI—your reliable health partner with AI at your fingertips.</strong></p>
+  </div>
+</section>
+
+
+      
+      <section id="contact">
+        <h2>Contact Us</h2><br>
+        <p>Email: dherayakamdar26@gmail.com &nbsp; | +91 70453 84528<br><br>Email: padhiyarraj46@gmail.com  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| +91 96193 29633
+                </p></p>
+      </section>
+    </main>
+
+    
+    <div id="uploadModal" class="modal">
+  <div class="modal-content">
+    <span id="closeUploadModal" class="close-btn">&times;</span>
+    <h3>Upload Your Medical Report</h3>
+    <div class="upload-options">
+      <button id="scanReportBtn">Scan with Camera</button>
+      <button id="uploadPdfBtn">Upload PDF</button>
+    </div>
+
+    <form id="uploadForm" style="display:none;" enctype="multipart/form-data">
+      <input type="file" id="reportInput" name="report_file" /><br><br>
+      <button type="submit">Submit</button>
+      <p id="uploadStatus" style="margin-top: 10px;"></p>
+    </form>
+  </div>
+</div>
+
+
+    
+    <button id="modeToggleBtn" class="mode-toggle">🌙</button>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ GA_TRACKING_ID }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{ GA_TRACKING_ID }}');
+</script>
+
+
+  </body>
+</html>

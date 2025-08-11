@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Diagnose</title>
+
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/diagnosis.css') }}">
+
+ 
+  <header class="sticky-header">
+    <div class="header-bar">
+      <a href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="HealthCureAI Logo" class="logo" id="homeLogo" />
+      </a>
+    </div>
+    <div class="slogan">
+      <h2>Trusted Medical Knowledge at Your Fingertips</h2>
+    </div>
+  </header>
+
+ 
+  <main class="container">
+    <div id="doctor-animation" style="width:300px; height:300px; margin:auto;"></div>
+    <div id="doctor-info" style="text-align:center; margin-bottom:28px;"></div>
+
+    <h2 class="section-title">Symptoms Descriptions</h2>
+
+    <div class="description-box">
+      <div class="description-icon">💡</div>
+      <p class="description-note">
+        AI Diagnose is not designed for conversations or free-style tasks. Its purpose is to generate a DDX report in a specific format.<br>
+        Please provide symptoms, gender, age, and patient descriptions only.
+      </p>
+    </div>
+
+    <div class="form-section">
+      <div class="input-group">
+        <label style="margin-right:12px;">Gender:</label>
+        <label><input type="radio" name="gender" value="male"> Male</label>
+        <label style="margin-left:16px;"><input type="radio" name="gender" value="female"> Female</label>
+      </div>
+
+      <div class="input-group" style="margin-bottom:22px;">
+        <label for="age" style="margin-right:10px;">Age:</label>
+        <input type="number" id="age" name="age" min="0" max="120"
+               style="width:60px; padding:4px 8px; border-radius:4px; border:1px solid #ccd;"
+               placeholder="Age" />
+      </div>
+
+      <label for="symptoms-input">Patient Symptoms</label>
+      <textarea
+        id="symptoms-input"
+        maxlength="8000"
+        placeholder="e.g. 73 year old man with a history of atrial fibrillation and cataracts presents with..."
+      ></textarea>
+
+      <div class="char-counter"><span id="char-count">0</span>/8000</div>
+
+      <div class="button-group">
+        <button id="submit-btn" class="submit-button" disabled>CURE</button>
+        <button id="refresh-btn" class="refresh-button">REFRESH</button>
+      </div>
+    </div>
+
+
+<div id="outputSection" style="display: none; margin-top: 30px;" class="output-card">
+  <h2 id="diseaseName">Diagnosis Result</h2>
+  <p id="diseaseDescription"></p>
+
+  <h3>Red Flags</h3>
+  <ul id="redFlags"></ul>
+
+  <h3>Severity</h3>
+  <p id="severity"></p>
+
+  <h3>Acuteness</h3>
+  <p id="acuteness"></p>
+
+  <h3>Prevalence</h3>
+  <p id="prevalence"></p>
+
+  <h3>Hint</h3>
+  <p id="hint"></p>
+
+  <h3>Triage Level</h3>
+  <p id="triageLevel"></p>
+
+</div>
+
+  </main>
+
+  
+  <button id="modeToggleBtn" class="mode-toggle" aria-label="Toggle color mode">🌙</button>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <script src="{{ url_for('static', filename='js/diagnosis.js') }}"></script>
+
+</body>
+</html>

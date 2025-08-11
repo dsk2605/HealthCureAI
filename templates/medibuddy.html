@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediBuddy</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/diagnosis.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/medibuddy.css') }}" />
+</head>
+<body>
+
+
+  <header class="sticky-header">
+    <div class="header-bar">
+      <a href="{{ url_for('home') }}">
+        <img
+          src="{{ url_for('static', filename='images/logo.png') }}"
+          alt="HealthCureAI Logo"
+          class="logo"
+        />
+      </a>
+    </div>
+    <div class="slogan">
+      <h2>Your Personalized Medicine Companion</h2>
+    </div>
+  </header>
+
+
+  <main class="medibuddy-container">
+    <h2 class="medibox-title">Search for a Medicine</h2>
+    <div class="search-wrapper">
+      <input
+        type="text"
+        id="medicine-input"
+        placeholder="Enter medicine name..."
+        autocomplete="off"
+      />
+    </div>
+
+    <button class="search-button" id="searchMedicineBtn">Search</button>
+
+    <div id="medicine-result" class="results-box"></div>
+  </main>
+
+
+  <button
+    id="modeToggleBtn"
+    class="mode-toggle"
+    aria-label="Toggle color mode"
+    title="Toggle dark/light mode"
+  >
+    🌙
+  </button>
+
+
+  <script src="{{ url_for('static', filename='js/medibuddy.js') }}" defer></script>
+</body>
+</html>
