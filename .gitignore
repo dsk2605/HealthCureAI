@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables file
+.env
+
+# VS Code settings folder
+.vscode/
+
+# Python virtual environments
+venv/
+env/
+ENV/
+
+# Mac system files
+.DS_Store
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# Uploaded reports folder (optional, if you don't want to commit user uploads)
+uploads/
+
+# Ignore Python wheel and egg files
+*.egg-info/
+dist/
+build/
+
+# If you use pipenv
+Pipfile.lock
