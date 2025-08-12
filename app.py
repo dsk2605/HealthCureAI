@@ -28,12 +28,18 @@ UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+model = None
+le = None
 
-with open("XGBoost Disease Model.pkl", "rb") as f:
-    model = pickle.load(f)
-
-with open("XGBoost Label Encoder.pkl", "rb") as f:
-    le = pickle.load(f)
+def get_model():
+    global model, le
+    if model is None or le is None:
+        import pickle
+        with open("XGBoost Disease Model.pkl", "rb") as f:
+            model = pickle.load(f)
+        with open("XGBoost Label Encoder.pkl", "rb") as f:
+            le = pickle.load(f)
+    return model, le
 
 
 def normalize_text(text):
